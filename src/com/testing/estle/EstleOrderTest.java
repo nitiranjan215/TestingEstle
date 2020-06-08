@@ -1,4 +1,7 @@
 package com.testing.estle;
+/*
+ * @author nitiranjan
+ */
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,7 +41,9 @@ class EstleOrderTest {
 		Assert.assertTrue(driver.getTitle().equals("MAC New Makeup Collections | MAC Cosmetics - Official Site"));
 		
 		//Click the first category
-		driver.findElement(By.xpath("//img[contains(@data-src,'bronzer')]")).click();
+		WebElement element = driver.findElement(By.xpath("//img[contains(@data-src,'bronzer')]"));
+		Actions actions1 = new Actions(driver);
+		actions1.moveToElement(element).click().perform();
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,600)");
 		
